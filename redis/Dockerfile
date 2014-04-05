@@ -1,5 +1,5 @@
-FROM ubuntu:quantal
-MAINTAINER Jason Staten <jstaten@peer60.com>
+FROM resin/rpi-raspbian
+MAINTAINER Zeke Nierenberg <hampzan09@gmail.com>
 
 ADD sources.list /etc/apt/sources.list.d/peer60-redis.list
 RUN adduser --system --disabled-login --home /var/lib/redis --no-create-home \
