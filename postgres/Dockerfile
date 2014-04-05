@@ -1,5 +1,5 @@
-FROM ubuntu:precise
-MAINTAINER Jason Staten <jstaten@peer60.com>
+FROM resin/rpi-raspbian
+MAINTAINER Zeke Nierenberg <hampzan09@gmail.com>
 
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
