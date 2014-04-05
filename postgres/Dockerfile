@@ -9,6 +9,8 @@ ENV LC_ALL en_US.UTF-8
 
 # RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
+RUN apt-get install aufs-tools
+
 RUN apt-get update && apt-get -y --force-yes install wget
 
 ADD sources.list /etc/apt/sources.list.d/peer60-postgres.list
