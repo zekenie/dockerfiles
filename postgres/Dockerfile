@@ -5,9 +5,9 @@ ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-RUN locale-gen en_US.UTF-8
+# RUN locale-gen en_US.UTF-8
 
-RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
+# RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
 RUN apt-get update && apt-get -y --force-yes install wget
 
