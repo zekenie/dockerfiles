@@ -5,7 +5,9 @@ ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-RUN locale-gen en_US.UTF-8 && DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
+RUN locale-gen en_US.UTF-8
+
+RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
 RUN apt-get update && apt-get -y --force-yes install wget
 
@@ -17,8 +19,8 @@ RUN adduser --system --disabled-login --home /var/lib/postgresql --no-create-hom
             --group --gecos "PostgreSQL administrator" --shell /bin/bash \
             --uid 5432 postgres
 
-RUN apt-get update --no-list-cleanup\
-      && DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install postgresql-9.3 \
+RUN apt-get update --no-list-cleanup
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install postgresql-9.3 \
       && rm -rf /var/lib/apt/lists/* \
       && apt-get clean
 
