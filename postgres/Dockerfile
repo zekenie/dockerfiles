@@ -13,13 +13,15 @@ RUN locale-gen en_US.UTF-8
 
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
-RUN apt-get install aufs-tools
+RUN apt-get -y --force-yes install aufs-tools
 
 RUN apt-get update && apt-get -y --force-yes install wget
 
 ADD sources.list /etc/apt/sources.list.d/peer60-postgres.list
 
 RUN wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
+
+RUN apt-get -y --force-yes install adduser
 
 RUN adduser --system --disabled-login --home /var/lib/postgresql --no-create-home \
             --group --gecos "PostgreSQL administrator" --shell /bin/bash \
