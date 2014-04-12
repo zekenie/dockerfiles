@@ -17,9 +17,9 @@ RUN apt-get -y --force-yes install aufs-tools
 
 RUN apt-get update && apt-get -y --force-yes install wget
 
-ADD sources.list /etc/apt/sources.list.d/peer60-postgres.list
+# ADD sources.list /etc/apt/sources.list.d/peer60-postgres.list
 
-RUN wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
+# RUN wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
 
 RUN apt-get -y --force-yes install adduser
 
@@ -27,8 +27,8 @@ RUN adduser --system --disabled-login --home /var/lib/postgresql --no-create-hom
             --group --gecos "PostgreSQL administrator" --shell /bin/bash \
             --uid 5432 postgres
 
-RUN apt-get update --no-list-cleanup
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install postgresql-9.3 \
+# RUN apt-get update --no-list-cleanup
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install postgresql \
       && rm -rf /var/lib/apt/lists/* \
       && apt-get clean
 
