@@ -17,6 +17,8 @@ RUN apt-get -y --force-yes install aufs-tools
 
 RUN apt-get update && apt-get -y --force-yes install wget
 
+ADD sources.list /etc/apt/sources.list.d/peer60-postgres.list
+
 RUN wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
 
 RUN apt-get -y --force-yes install adduser
